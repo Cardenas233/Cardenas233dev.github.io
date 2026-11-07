@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JR Mobiliarios | Dando Vida a Tus Espacios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #C8A951;
+            --gold-light: #E8D5A3;
+            --dark-brown: #2C1810;
+            --medium-brown: #4A2C1A;
+            --light-brown: #8B6914;
+            --cream: #FDF8F0;
+            --white: #FFFFFF;
+            --dark: #1A1A1A;
+            --text-gray: #555555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--cream);
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(44, 24, 16, 0.97);
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            text-decoration: none;
+        }
+
+        /* ESTILOS PARA EL LOGO INTEGRADO */
+        .nav-logo-img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+            /* Color dorado con sombra */
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5)) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.9); 
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: var(--gold);
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(44,24,16,0.6), rgba(26,26,26,0.6)),
+                        url('ladingPage.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+        }
+
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            50% { transform: translateY(-30px) translateX(15px); opacity: 0.7; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 30px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 25px;
+            border: 1px solid var(--gold);
+            border-radius: 30px;
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 7vw, 80px);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-title span {
+            color: var(--gold);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 2.5vw, 22px);
+            color: var(--gold-light);
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn-primary {
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--gold), var(--light-brown));
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s;
+            box-shadow: 0 8px 30px rgba(200, 169, 81, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(200, 169, 81, 0.5);
+        }
+
+        .btn-secondary {
+            padding: 16px 40px;
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--gold);
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--dark-brown);
+            transform: translateY(-3px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            color: var(--gold);
+            font-size: 24px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== SECTIONS COMMON ========== */
+        .section {
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            color: var(--dark-brown);
+            margin-bottom: 20px;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+
+        .section-desc {
+            color: var(--text-gray);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ========== ABOUT ========== */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: transparent;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .foto-nosotros {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 15px;
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            opacity: 0.8;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, var(--gold), var(--light-brown));
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(200, 169, 81, 0.4);
+            z-index: 3;
+        }
+
+        .about-badge-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .about-badge-text {
+            font-size: 11px;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .about-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--dark-brown);
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--text-gray);
+            line-height: 1.9;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .about-feature-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, rgba(200,169,81,0.15), rgba(200,169,81,0.05));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .about-feature span {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--dark-brown);
+        }
+
+        /* ========== WOOD TYPES ========== */
+        .woods {
+            background: linear-gradient(135deg, var(--dark-brown), var(--medium-brown));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .woods::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+        }
+
+        .woods .section-title {
+            color: var(--white);
+        }
+
+        .woods .section-desc {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .woods-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px;
+        }
+
+        .wood-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(200,169,81,0.2);
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .wood-card:hover {
+            transform: translateY(-10px);
+            background: rgba(200,169,81,0.15);
+            border-color: var(--gold);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .wood-icon {
+            width: 85px;
+            height: 85px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--gold), var(--light-brown));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--white);
+            transition: transform 0.4s;
+            overflow: hidden;
+            border: 3px solid var(--gold);
+        }
+
+        .wood-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wood-card:hover .wood-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .wood-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .wood-card p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        /* ========== SERVICES ========== */
+        .services {
+            background: var(--cream);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 45px 35px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(200,169,81,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, rgba(200,169,81,0.15), rgba(200,169,81,0.05));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--gold);
+            transition: all 0.4s;
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--gold), var(--light-brown));
+            color: var(--white);
+            transform: rotateY(180deg);
+        }
+
+        .service-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--dark-brown);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* ========== GALLERY ========== */
+        .gallery {
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            height: 280px;
+            background: linear-gradient(135deg, var(--medium-brown), var(--dark-brown));
+        }
+
+        .gallery-item:first-child {
+            grid-row: span 2;
+            height: 100%;
+        }
+
+        .gallery-item-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+            transition: all 0.4s;
+        }
+
+        .gallery-item-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(44,24,16,0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 25px;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 2;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay-text h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--white);
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay-text p {
+            font-size: 13px;
+            color: var(--gold-light);
+        }
+
+        /* ========== PROCESS ========== */
+        .process {
+            background: var(--cream);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 15%;
+            right: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: var(--white);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            transition: all 0.4s;
+        }
+
+        .process-step:hover .step-number {
+            background: linear-gradient(135deg, var(--gold), var(--light-brown));
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .process-step h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--dark-brown);
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials {
+            background: linear-gradient(135deg, var(--dark-brown), var(--medium-brown));
+            position: relative;
+        }
+
+        .testimonials .section-title {
+            color: var(--white);
+        }
+
+        .testimonials .section-desc {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(200,169,81,0.2);
+            border-radius: 20px;
+            padding: 40px 30px;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 40px;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold), var(--light-brown));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 15px;
+        }
+
+        .testimonial-role {
+            font-size: 13px;
+            color: var(--gold-light);
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        /* ========== CONTACT ========== */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--dark-brown);
+            margin-bottom: 15px;
+        }
+
+        .contact-info > p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-item-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, rgba(200,169,81,0.15), rgba(200,169,81,0.05));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--gold);
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover .contact-item-icon {
+            background: linear-gradient(135deg, var(--gold), var(--light-brown));
+            color: var(--white);
+        }
+
+        .contact-item-text strong {
+            display: block;
+            font-size: 15px;
+            color: var(--dark-brown);
+            margin-bottom: 3px;
+        }
+
+        .contact-item-text span, .contact-item-text a {
+            font-size: 14px;
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item-text a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--dark-brown), var(--medium-brown));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--gold), var(--light-brown));
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        .contact-form-wrapper {
+            background: var(--cream);
+            border-radius: 24px;
+            padding: 45px;
+            border: 1px solid rgba(200,169,81,0.15);
+        }
+
+        .contact-form-wrapper h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--dark-brown);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--dark-brown);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(200,169,81,0.2);
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: var(--dark);
+            background: var(--white);
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(200,169,81,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--gold), var(--light-brown));
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.4s;
+            margin-top: 10px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(200,169,81,0.4);
+        }
+
+        /* ========== CTA BANNER ========== */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--gold), var(--light-brown));
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 4vw, 42px);
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .cta-banner p {
+            color: rgba(255,255,255,0.9);
+            font-size: 17px;
+            margin-bottom: 35px;
+        }
+
+        .cta-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 45px;
+            background: var(--white);
+            color: #25D366;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .cta-whatsapp:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+        }
+
+        .cta-whatsapp i {
+            font-size: 24px;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--dark-brown);
+            padding: 80px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(200,169,81,0.15);
+        }
+
+        /* ESTILO PARA EL LOGO EN EL FOOTER */
+        .logo-footer {
+            height: 75px;
+            width: auto;
+            margin-bottom: 20px;
+            display: block;
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5)) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.9);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .footer h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: var(--white);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact-item i {
+            color: var(--gold);
+            font-size: 16px;
+            width: 20px;
+        }
+
+        .footer-contact-item span, .footer-contact-item a {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            padding: 25px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+        }
+
+        .footer-bottom a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        /* ========== WHATSAPP FLOAT ========== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            text-decoration: none;
+            z-index: 999;
+            box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(37,211,102,0.6);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+            70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .woods-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--dark-brown);
+                flex-direction: column;
+                padding: 100px 40px;
+                gap: 25px;
+                transition: right 0.4s;
+                box-shadow: -10px 0 40px rgba(0,0,0,0.3);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 350px;
+            }
+
+            .woods-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .woods-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 1;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-wrapper {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="logo_JR.png" alt="JR Mobiliarios Logo" class="nav-logo-img">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#maderas">Maderas</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-particles">
+            <div class="particle" style="top:20%;left:10%;animation-delay:0s"></div>
+            <div class="particle" style="top:60%;left:25%;animation-delay:1s"></div>
+            <div class="particle" style="top:30%;left:70%;animation-delay:2s"></div>
+            <div class="particle" style="top:80%;left:80%;animation-delay:3s"></div>
+            <div class="particle" style="top:45%;left:50%;animation-delay:4s"></div>
+            <div class="particle" style="top:15%;left:85%;animation-delay:1.5s"></div>
+            <div class="particle" style="top:70%;left:40%;animation-delay:2.5s"></div>
+            <div class="particle" style="top:50%;left:15%;animation-delay:3.5s"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">✦ Muebles de Alta Calidad ✦</div>
+            <h1 class="hero-title">
+                JR Mobiliarios
+                <span>Dando Vida a Tus Espacios</span>
+            </h1>
+            <p class="hero-subtitle">Muebles artesanales en madera fina</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/529931798079?text=Hola%2C%20me%20interesa%20cotizar%20un%20mueble" class="btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i>&nbsp; Cotizar Ahora
+                </a>
+                <a href="#galeria" class="btn-secondary">Ver Galería</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="nosotros">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper">
+                    <div class="about-image">
+                        <img src="Muestra1.png" alt="Nuestros muebles" class="foto-nosotros">
+                    </div>
+                    <div class="about-badge">
+                        <span class="about-badge-number">10+</span>
+                        <span class="about-badge-text">Años de<br>Experiencia</span>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-label">Sobre Nosotros</span>
+                    <h3>Creamos Muebles que Transforman tu Hogar</h3>
+                    <p>En <strong>JR Mobiliarios</strong> nos especializamos en la fabricación de muebles de alta calidad utilizando las mejores maderas. Cada pieza es elaborada con dedicación, precisión y amor por el detalle, garantizando un producto único que se adapta perfectamente a tus espacios.</p>
+                    <p>Trabajamos con una amplia variedad de maderas finas como cedro, caoba, macuilís, pino y triplay, ofreciendo soluciones personalizadas para cada necesidad y estilo.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fas fa-check"></i></div>
+                            <span>Madera 100% Seleccionada</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fas fa-check"></i></div>
+                            <span>Diseño Personalizado</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fas fa-check"></i></div>
+                            <span>Acabados Premium</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon"><i class="fas fa-check"></i></div>
+                            <span>Entrega Garantizada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WOOD TYPES -->
+    <section class="section woods" id="maderas">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Nuestros Materiales</span>
+                <h2 class="section-title">Tipos de Madera</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">Trabajamos con las mejores maderas del mercado para garantizar durabilidad, belleza y elegancia en cada mueble.</p>
+            </div>
+            <div class="woods-grid">
+                <div class="wood-card">
+                    <div class="wood-icon">
+                        <img src="cedro.png" alt="Madera de Cedro">
+                    </div>
+                    <h4>Cedro</h4>
+                    <p>Madera aromática, resistente a plagas y de gran durabilidad. Ideal para closets y muebles de dormitorio.</p>
+                </div>
+                <div class="wood-card">
+                    <div class="wood-icon">
+                        <img src="montana_sin_fondo.png" alt="Madera de Caoba">
+                    </div>
+                    <h4>Caoba</h4>
+                    <p>Madera noble de tono rojizo oscuro. Elegante y sofisticada, perfecta para muebles de lujo.</p>
+                </div>
+                <div class="wood-card">
+                    <div class="wood-icon">
+                        <img src="tronco_sin_fondo.png" alt="Madera de Macuilís">
+                    </div>
+                    <h4>Macuilís</h4>
+                    <p>Madera dura y pesada con vetas hermosas. Excelente para piezas estructurales y decorativas.</p>
+                </div>
+                <div class="wood-card">
+                    <div class="wood-icon">
+                        <img src="cedro.png" alt="Madera de Pino">
+                    </div>
+                    <h4>Pino</h4>
+                    <p>Madera versátil y económica. Perfecta para proyectos rústicos y contemporáneos.</p>
+                </div>
+                <div class="wood-card">
+                    <div class="wood-icon">
+                        <img src="triplay.png" alt="Panel de Triplay">
+                    </div>
+                    <h4>Triplay</h4>
+                    <p>Panel multicapa resistente y estable. Ideal para estructuras internas y acabados modernos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Lo Que Hacemos</span>
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">Ofrecemos una amplia gama de servicios en carpintería y ebanistería para transformar tus espacios.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-couch"></i></div>
+                    <h4>Muebles a Medida</h4>
+                    <p>Diseñamos y fabricamos muebles personalizados según tus necesidades, dimensiones y estilo preferido.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-door-open"></i></div>
+                    <h4>Closets y Vestidores</h4>
+                    <p>Closets empotrados y vestidores funcionales que maximizan el espacio de tu habitación.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                    <h4>Cocinas Integrales</h4>
+                    <p>Cocinas completas con diseño moderno, acabados de primera y máxima funcionalidad.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bed"></i></div>
+                    <h4>Recámaras Completas</h4>
+                    <p>Sets de recámara incluyendo cama, burós, cómoda y espejo con diseño coordinado.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tv"></i></div>
+                    <h4>Centros de Entretenimiento</h4>
+                    <p>Muebles para TV y sala diseñados para organizar cables y equipos de forma elegante.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-magic"></i></div>
+                    <h4>Tocadores y Vanities</h4>
+                    <p>Tocadores con iluminación tipo Hollywood, perfectos para tu espacio de belleza personal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery" id="galeria">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Nuestro Trabajo</span>
+                <h2 class="section-title">Galería de Proyectos</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">Conoce algunos de nuestros trabajos más destacados y deja que te inspiren.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-item-inner">
+                        <img src="Muestra1.png" alt="Sala y Sofás">
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h5>Sofás Personalizados</h5>
+                            <p>Diseño exclusivo en tela premium</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-inner">
+                        <img src="tocadores.png" alt="Tocador Hollywood">
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h5>Tocador Hollywood</h5>
+                            <p>Con iluminación LED integrada</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-inner">
+                        <img src="cocina.png" alt="Comedor">
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h5>Comedor Moderno</h5>
+                            <p>Madera de caoba con acabado natural</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-inner">
+                        <img src="entretenimiento.png" alt="Escritorio">
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h5>Escritorio Ejecutivo</h5>
+                            <p>Diseño contemporáneo en cedro</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-inner">
+                        <img src="closet.png" alt="Closet">
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">
+                            <h5>Vestidor Completo</h5>
+                            <p>Organización inteligente y elegante</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Cómo Trabajamos</span>
+                <h2 class="section-title">Nuestro Proceso</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">Un proceso simple y transparente para llevar tu idea a la realidad.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Consulta</h4>
+                    <p>Nos cuentas tu idea, medidas y preferencias de madera y estilo.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Diseño</h4>
+                    <p>Creamos un diseño personalizado con renders para tu aprobación.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Fabricación</h4>
+                    <p>Nuestros artesanos elaboran tu mueble con los mejores materiales.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Entrega</h4>
+                    <p>Instalamos tu mueble en tu hogar con cuidado y profesionalismo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Testimonios</span>
+                <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+                <div class="section-divider"></div>
+                <p class="section-desc">La satisfacción de nuestros clientes es nuestra mejor carta de presentación.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Excelente trabajo en mi closet de caoba. La calidad del acabado es impresionante y el servicio fue muy profesional. ¡Totalmente recomendados!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">M</div>
+                        <div>
+                            <div class="testimonial-name">María González</div>
+                            <div class="testimonial-role">Cliente Satisfecha</div>
+                            <div class="testimonial-stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Mi tocador tipo Hollywood quedó hermoso. El equipo de JR Mobiliarios entendió exactamente lo que quería y lo superó. Muy puntuales en la entrega.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">L</div>
+                        <div>
+                            <div class="testimonial-name">Laura Martínez</div>
+                            <div class="testimonial-role">Cliente Satisfecha</div>
+                            <div class="testimonial-stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Compré un comedor completo en cedro y estoy fascinado. La madera es de primera calidad y el precio fue muy justo. Sin duda volveré a comprar.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">C</div>
+                        <div>
+                            <div class="testimonial-name">Carlos Hernández</div>
+                            <div class="testimonial-role">Cliente Satisfecho</div>
+                            <div class="testimonial-stars">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>¿Listo para Transformar tu Espacio?</h2>
+            <p>Contáctanos hoy y recibe una cotización sin compromiso</p>
+            <a href="https://wa.me/529931798079?text=Hola%2C%20me%20interesa%20cotizar%20un%20mueble" class="cta-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Contáctanos</span>
+                <h2 class="section-title">Estamos Para Servirte</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <p>No dudes en comunicarte con nosotros. Estamos listos para ayudarte a crear el mueble perfecto para tu hogar.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div class="contact-item-text">
+                                <strong>WhatsApp</strong>
+                                <a href="https://wa.me/529931798079" target="_blank">993 179 8079</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-item-text">
+                                <strong>Correo Electrónico</strong>
+                                <a href="mailto:mobiliarios.jr@gmail.com">mobiliarios.jr@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon"><i class="fab fa-facebook-f"></i></div>
+                            <div class="contact-item-text">
+                                <strong>Facebook</strong>
+                                <a href="https://facebook.com/JRMOBILIARIOS" target="_blank">JR MOBILIARIOS</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon"><i class="fab fa-instagram"></i></div>
+                            <div class="contact-item-text">
+                                <strong>Instagram</strong>
+                                <a href="https://instagram.com/JR_Mobiliarios" target="_blank">@JR_Mobiliarios</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon"><i class="fab fa-tiktok"></i></div>
+                            <div class="contact-item-text">
+                                <strong>TikTok</strong>
+                                <a href="https://tiktok.com/@JR_Mobiliarios" target="_blank">@JR_Mobiliarios</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://facebook.com/JRMOBILIARIOS" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/JR_Mobiliarios" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@JR_Mobiliarios" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/529931798079" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <h4>Solicita tu Cotización</h4>
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nombre Completo</label>
+                                <input type="text" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Teléfono</label>
+                                <input type="tel" placeholder="Tu teléfono" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Correo Electrónico</label>
+                            <input type="email" placeholder="tu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo de Madera Preferida</label>
+                            <select required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="cedro">Cedro</option>
+                                <option value="caoba">Caoba</option>
+                                <option value="macuillis">Macuilís</option>
+                                <option value="pino">Pino</option>
+                                <option value="triplay">Triplay</option>
+                                <option value="otra">Otra / No estoy seguro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Describe tu Proyecto</label>
+                            <textarea placeholder="Cuéntanos qué mueble necesitas, medidas aproximadas, estilo preferido..." required></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">
+                            <i class="fas fa-paper-plane"></i>&nbsp; Enviar Solicitud
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <!-- AQUÍ ESTÁ TU NUEVO LOGO -->
+                    <img src="logo_JR.png" alt="JR Mobiliarios Logo" class="logo-footer">
+                    
+                    <p>Dando vida a tus espacios con muebles de alta calidad elaborados en las mejores maderas. Más de 10 años transformando hogares con diseño, calidad y pasión.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/JRMOBILIARIOS" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/JR_Mobiliarios" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@JR_Mobiliarios" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/529931798079" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h5>Navegación</h5>
+                    <ul class="footer-links">
+                        <li><a href="#inicio"><i class="fas fa-chevron-right" style="font-size:10px"></i> Inicio</a></li>
+                        <li><a href="#nosotros"><i class="fas fa-chevron-right" style="font-size:10px"></i> Nosotros</a></li>
+                        <li><a href="#maderas"><i class="fas fa-chevron-right" style="font-size:10px"></i> Maderas</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right" style="font-size:10px"></i> Servicios</a></li>
+                        <li><a href="#galeria"><i class="fas fa-chevron-right" style="font-size:10px"></i> Galería</a></li>
+                        <li><a href="#contacto"><i class="fas fa-chevron-right" style="font-size:10px"></i> Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Servicios</h5>
+                    <ul class="footer-links">
+                        <li><a href="#servicios"><i class="fas fa-chevron-right" style="font-size:10px"></i> Muebles a Medida</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right" style="font-size:10px"></i> Closets</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right" style="font-size:10px"></i> Cocinas</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right" style="font-size:10px"></i> Recámaras</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right" style="font-size:10px"></i> Tocadores</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right" style="font-size:10px"></i> Comedores</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Contacto</h5>
+                    <div class="footer-contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/529931798079" target="_blank">993 179 8079</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:mobiliarios.jr@gmail.com">mobiliarios.jr@gmail.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fab fa-facebook-f"></i>
+                        <a href="https://facebook.com/JRMOBILIARIOS" target="_blank">JR MOBILIARIOS</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <a href="https://instagram.com/JR_Mobiliarios" target="_blank">@JR_Mobiliarios</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fab fa-tiktok"></i>
+                        <a href="https://tiktok.com/@JR_Mobiliarios" target="_blank">@JR_Mobiliarios</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 <a href="#">JR Mobiliarios</a>. Todos los derechos reservados. | Dando Vida a Tus Espacios</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT BUTTON -->
+    <a href="https://wa.me/529931798079?text=Hola%2C%20me%20interesa%20cotizar%20un%20mueble" class="whatsapp-float" target="_blank" title="Chatea con nosotros">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Form submission handler
+        function handleSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            // Build WhatsApp message
+            const name = form.querySelector('input[type="text"]').value;
+            const phone = form.querySelector('input[type="tel"]').value;
+            const email = form.querySelector('input[type="email"]').value;
+            const wood = form.querySelector('select').value;
+            const desc = form.querySelector('textarea').value;
+            
+            const message = `¡Hola JR Mobiliarios! 👋%0A%0A*Solicitud de Cotización*%0A━━━━━━━━━━━━━━━%0A👤 Nombre: ${name}%0A📞 Teléfono: ${phone}%0A📧 Email: ${email}%0A🪵 Madera: ${wood}%0A📝 Descripción: ${desc}`;
+            
+            window.open(`https://wa.me/529931798079?text=${message}`, '_blank');
+            
+            alert('¡Gracias por tu interés! Te redirigimos a WhatsApp para completar tu solicitud.');
+            form.reset();
+        }
+
+        // Smooth reveal animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.wood-card, .service-card, .gallery-item, .process-step, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
